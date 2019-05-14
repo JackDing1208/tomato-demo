@@ -1,1 +1,1 @@
-<button class="tomato-button2" >{{text}}</button>
+<button class="tomato-button2" bindtap="click">{{text}}</button>

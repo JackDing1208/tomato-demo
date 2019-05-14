@@ -1,3 +1,7 @@
 <d-button type="change" class="createButton" text="创建任务" bindtap='showCreateConfirm'></d-button>
 
-<t-button text="组件测试"></t-button>
+<d-clock text="开始计时"></d-clock>
+
+<d-confirm placeholder="请输入要做的事情" visible="{{visible}}" bindconfirm="confirm"  bindcancel="cancel"> </d-confirm>
+
+<!--<t-button text="触发事件" bindclick="onclick"></t-button>-->

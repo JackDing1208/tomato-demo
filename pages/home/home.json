@@ -1,6 +1,8 @@
 {
   "usingComponents": {
     "d-button": "../../components/button/button",
-    "t-button": "../../components/button2/button"
+    "t-button": "../../components/button2/button",
+    "d-clock": "../../components/clock/clock",
+    "d-confirm": "../../components/confirm/confirm"
   }
 }
