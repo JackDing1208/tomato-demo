@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "d-button": "../../components/button/button",
+    "t-button": "../../components/button2/button"
+  }
+}

@@ -1,0 +1,3 @@
+<d-button type="change" class="createButton" text="创建任务" bindtap='showCreateConfirm'></d-button>
+
+<t-button text="组件测试"></t-button>

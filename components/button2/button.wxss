@@ -1,0 +1,15 @@
+button::after{ border: none; }
+.button-hover { opacity: 0.6; }
+.tomato-button2{
+    width: 200rpx;
+    height: 80rpx;
+    border-radius: 16rpx;
+    color: #fff;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background: orange;
+}
+
