@@ -1,7 +1,28 @@
-<d-button type="change" class="createButton" text="创建任务" bindtap='showCreateConfirm'></d-button>
+<view class="home-container">
+    <scroll-view class="todoList" scroll-y="true">
+        111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+        <view class="item"
+              wx:for="{{lists}}"
+              wx:for-index="index"
+              wx:key="{{item.id}}"
+              wx:if="{{!item.completed}}">
+            <view class="select {{item.completed && 'active'}}"
+                  bindtap='destroyTodo'
+                  data-index="{{index}}"
+                  data-id="{{item.id}}" ></view>
+            <text bindtap="changeText"
+                  data-index="{{index}}"
+                  data-id="{{item.id}}"
+                  data-content="{{item.description}}">{{item.description}}</text>
+        </view>
+    </scroll-view>
+    <d-button type="change" class="createButton" text="创建任务" bindtap='showCreateConfirm'>创建任务</d-button>
+    <view class="tomato-wrapper">
+        <navigator class="tomato" url="/pages/tomato/tomato">
+            <d-clock text="开始计时"></d-clock>
+        </navigator>
+    </view>
+    <d-confirm placeholder="我完成了什么" bindconfirm="confirmCreate" bindcancel="hideCreateConfirm" visible="{{visibleCreateConfirm}}"></d-confirm>
 
-<d-clock text="开始计时"></d-clock>
-
-<d-confirm placeholder="请输入要做的事情" visible="{{visible}}" bindconfirm="confirm"  bindcancel="cancel"> </d-confirm>
-
-<!--<t-button text="触发事件" bindclick="onclick"></t-button>-->
+    <d-confirm bindconfirm="confirmUpdate" value="{{updateContent}}" bindcancel="hideUpdateConfirm" visible="{{visibleUpdateConfirm}}"></d-confirm>
+</view>

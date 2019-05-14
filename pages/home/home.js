@@ -2,20 +2,25 @@
 Page({
 
     data: {
-        visible: true
+        visibleCreateConfirm: false
     },
 
-    confirm(e) {
+    confirmCreate(e) {
         console.log(e.detail);
-        this.setData({visible: false})
+        this.setData({visibleCreateConfirm: false})
 
     },
-    cancel(e) {
+    hideCreateConfirm(e) {
         console.log(e.detail);
-        this.setData({visible: false})
+        this.setData({visibleCreateConfirm: false})
     },
     onclick(e){
         console.log(2);
         console.log(e.detail);
+    },
+    showCreateConfirm(e){
+        console.log(e);
+        this.setData({visibleCreateConfirm: true})
+
     }
 })
