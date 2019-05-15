@@ -2,44 +2,11 @@
 Page({
 
   data: {
-    text:"haha"
+    text:"haha",
+    open:true
   },
-
-  onLoad: function (options) {
-
-  },
-
-
-  onReady: function () {
-
-  },
-
-
-  onShow: function () {
-
-  },
-
-
-  onHide: function () {
-
-  },
-
-
-  onUnload: function () {
-
-  },
-
-  onPullDownRefresh: function () {
-
-  },
-
-
-  onReachBottom: function () {
-
-  },
-
-
-  onShareAppMessage: function () {
-
+  switch(){
+    this.data.open=!this.data.open
   }
+
 })

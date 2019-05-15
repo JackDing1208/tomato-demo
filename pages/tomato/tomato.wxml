@@ -1,4 +1,22 @@
-<view>
-    <d-clock text="{{text}}"></d-clock>
-</view>
+<view class="cantainer">
+    <view class="clock">
+        <d-clock text="{{text}}"></d-clock>
+    </view>
+    <view wx:if="{{!againButtonVisible}}">
+        <view class="stop" >
+            <d-button type="change" size="mini" text="暂停计时" bindtap='clearTimer' wx:if="{{clockStatus==='tick'}}" ></d-button>
+            <d-button type="change" size="mini" text="开始计时" bindtap='setTimer' wx:if="{{clockStatus==='stop'}}"></d-button>
+        </view>
 
+        <view class="abandon">
+            <d-button size="mini" text="放弃" bindtap='showConfirm'></d-button>
+        </view>
+    </view>
+    <view class="again" wx:else bindtap='againTimer'>
+        <d-button size="mini" type="change" text="再来一组"></d-button>
+    </view>
+    <d-confirm visible="{{confirmVisible}}" bindconfirm="confirmAbandon" bindcancel="hideConfirm"
+               placeholder="放弃理由"></d-confirm>
+    <d-confirm visible="{{finishConfirmVisible}}" bindconfirm="confirmFinish" bindcancel="confirmCancel"
+               placeholder="完成了什么"></d-confirm>
+</view>

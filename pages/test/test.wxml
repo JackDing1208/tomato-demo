@@ -1,2 +1,6 @@
-<!--pages/test/test.wxml-->
-<view>{{text}}</view>
+<d-button text="开关测试1111" wx:if="{{open}}"></d-button>
+<d-button text="开关测试2222" wx:if="{{!open}}"></d-button>
+
+
+
+<button bindtap="switch">点我</button>
