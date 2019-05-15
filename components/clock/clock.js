@@ -6,7 +6,7 @@ Component({
     },
     fontSize: {
       type: String,
-      value: "32"
+      value: "32rpx"
     }
   }
 })

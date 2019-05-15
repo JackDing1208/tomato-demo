@@ -2,15 +2,15 @@
 Page({
 
     data: {
-        time: 13,
+        time: 100,
         text: '',
         timer: null,
         clockStatus: 'stop',
+        abandonConfirmVisible: false
     },
 
 
     onShow: function () {
-        console.log(this.data.clockStatus);
         this.showTime()
         this.setTimer()
     },
@@ -22,8 +22,8 @@ Page({
     },
 
     setTimer() {
-        if (this.data.clockStatus ==='stop' && this.data.time!==0) {
-            this.setData({clockStatus:'tick'})
+        if (this.data.clockStatus === 'stop' && this.data.time !== 0) {
+            this.setData({clockStatus: 'tick'})
             this.data.timer = setInterval(() => {
                 this.data.time -= 1
                 this.showTime()
@@ -31,16 +31,28 @@ Page({
                     this.clearTimer()
                 }
             }, 1000)
-            console.log('start');
         }
     },
     clearTimer() {
-        if (this.data.clockStatus ==='tick') {
+        if (this.data.clockStatus === 'tick') {
             clearInterval(this.data.timer)
-            this.data.timer=null
-            this.setData({clockStatus:'stop'})
-            console.log('stop');
+            this.data.timer = null
+            this.setData({clockStatus: 'stop'})
+            console.log('kill timer')
+        }
+    },
+    showConfirm() {
+        this.setData({abandonConfirmVisible: true})
+
+    },
+    hideConfirm() {
+        this.setData({abandonConfirmVisible: false})
+
+    },
+    confirmAbandon() {
+        wx.navigateBack({to: -1})
+        if (this.data.clockStatus === 'tick') {
+            this.clearTimer()
         }
     }
-
 })
