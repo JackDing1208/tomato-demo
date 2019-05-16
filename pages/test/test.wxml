@@ -4,3 +4,5 @@
 
 
 <button bindtap="switch">点我</button>
+
+<button bindtap="request">发请求</button>

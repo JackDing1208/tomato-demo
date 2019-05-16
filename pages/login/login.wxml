@@ -5,10 +5,9 @@
     <view class="name-wrap">
         <open-data type='userNickName' class="name"></open-data>
     </view>
-    <button class="loginButton"
-            open-type="getUserInfo"
-            bindgetuserinfo="login"
-            withCredentials="true">
+    <button class="loginButton" withCredentials="true"
+            open-type="getUserInfo" bindgetuserinfo="login"
+    >
         微信一键登录
     </button>
 </view>
