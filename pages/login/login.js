@@ -3,28 +3,30 @@ const {app_id, app_secret} = getApp().globalData
 
 Page({
     data: {},
-
-    login(e) {      //先获取微信相关数据,再向自身服务器一起发请求
-        let {encryptedData, iv} = e.detail
+    login(event) {
+        let encrypted_data = event.detail.encryptedData
+        let iv = event.detail.iv
         let code
         wx.login({
-            success(res){
-                code=res.code
-                console.log(encryptedData)
-                console.log(iv);
-                console.log(code);
-
-                http.post('/sign_in/mini_program_user',{
+            success: (res) => {
+                code = res.code
+                http.post('/sign_in/mini_program_user', {
                     code,
                     iv,
-                    encryptedData,
+                    encrypted_data,
                     app_id,
-                    app_secret
+                    app_secret,
                 })
+                    .then(response => {
+                        this.saveMessage(response)
+                        wx.reLaunch({ url: "/pages/home/home" })
+                    })
             }
         })
-
-   }
-
+    },
+    saveMessage(response){
+        wx.setStorageSync('me', response.data.resource)
+        wx.setStorageSync('X-token', response.header["X-token"])
+    }
 
 })
