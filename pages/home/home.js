@@ -21,6 +21,5 @@ Page({
     showCreateConfirm(e){
         console.log(e);
         this.setData({visibleCreateConfirm: true})
-
     }
 })
